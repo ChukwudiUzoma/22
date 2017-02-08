@@ -49,10 +49,10 @@ public class Adapter {
             return Response.ok(o.toString()).build();
          }
         
-        return Response.status(204).build();//204 нет содержаний
+        return Response.status(204).build();//
         
      }
-   //Получение мотивации цитата из forismatic
+   //
      @GET
      @Path("/getQuote2")
      public Response getQuote2() throws ClientProtocolException, IOException {
