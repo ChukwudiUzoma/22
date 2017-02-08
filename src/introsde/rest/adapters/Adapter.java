@@ -24,16 +24,16 @@ import org.json.*;
 @Path("/adapter")
 public class Adapter {
 
-     //Получение мотивации цитата из quotesondesign
+     //
      @GET
      @Path("/getQuote")
      public Response getQuote() throws ClientProtocolException, IOException {
         
         String ENDPOINT = "http://quotesondesign.com/api/3.0/api-3.0.json";
 
-        DefaultHttpClient client = new DefaultHttpClient(); //Инстанцирование HttpClient
-        HttpGet request = new HttpGet(ENDPOINT);//Создать метод GET
-        HttpResponse response = client.execute(request);//Выполнить метод
+        DefaultHttpClient client = new DefaultHttpClient(); //
+        HttpGet request = new HttpGet(ENDPOINT);//
+        HttpResponse response = client.execute(request);//
         
         BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
 
@@ -43,9 +43,9 @@ public class Adapter {
             result.append(line);
         }
         
-        JSONObject o = new JSONObject(result.toString());//Инстанцирование JavaObject c контентом URL
+        JSONObject o = new JSONObject(result.toString());//
         
-        if(response.getStatusLine().getStatusCode() == 200){//200 успешно и отправить кленту
+        if(response.getStatusLine().getStatusCode() == 200){//
             return Response.ok(o.toString()).build();
          }
         
